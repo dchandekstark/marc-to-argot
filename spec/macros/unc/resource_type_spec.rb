@@ -13,6 +13,7 @@ describe MarcToArgot::Macros::UNC::ResourceType do
   let(:manuscript1) { run_traject_json('unc', 'manuscript1', 'mrc') }
   let(:stats1) { run_traject_json('unc', 'stats1', 'mrc') }
   let(:stats2) { run_traject_json('unc', 'stats2', 'mrc') }
+  let(:stats3) { run_traject_json('unc', 'stats3', 'xml') }
   let(:stats_not1) { run_traject_json('unc', 'stats_not1', 'mrc') }
   let(:thesis1) { run_traject_json('unc', 'thesis1', 'mrc') }
   let(:thesis2) { run_traject_json('unc', 'thesis2', 'mrc') }
@@ -144,5 +145,10 @@ describe MarcToArgot::Macros::UNC::ResourceType do
     end
   end
 
-
+  context 'III material type code = 8 (statistical data)' do
+    it '(UNC) resource_type includes Dataset -- Statistical' do
+      a = stats3['resource_type']
+      expect(a).to include('Dataset -- Statistical')
+    end
+  end
 end

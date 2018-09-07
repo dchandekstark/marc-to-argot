@@ -39,6 +39,9 @@ module MarcToArgot
             if unc_geospatial?
               formats << 'Dataset -- Geospatial'
             end
+            if unc_statistical_data?
+              formats << 'Dataset -- Statistical'
+            end
             formats.uniq
           end
 
@@ -52,6 +55,10 @@ module MarcToArgot
 
           def unc_geospatial?
             true if has_iii_mattype_code?('7')
+          end
+
+          def unc_statistical_data?
+            true if has_iii_mattype_code?('8')
           end
 
           def has_iii_mattype_code?(value)

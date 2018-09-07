@@ -1,0 +1,529 @@
+<?xml version='1.0'?>
+<collection xmlns='http://www.loc.gov/MARC21/slim' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd'>
+<record>
+  <leader>00000cas  2200493 a 4500</leader>
+  <controlfield tag='001'>14067354</controlfield>
+  <controlfield tag='003'>OCoLC</controlfield>
+  <controlfield tag='005'>20070809012710.0</controlfield>
+  <controlfield tag='008'>860808c19849999dcuar    s    0   a0eng d</controlfield>
+  <datafield tag='010' ind1=' ' ind2=' '>
+    <subfield code='a'>   89645655 </subfield>
+    <subfield code='z'>sn 89007105</subfield>
+  </datafield>
+  <datafield tag='019' ind1=' ' ind2=' '>
+    <subfield code='a'>16518062</subfield>
+  </datafield>
+  <datafield tag='022' ind1='0' ind2=' '>
+    <subfield code='a'>1044-2545</subfield>
+    <subfield code='2'>1</subfield>
+  </datafield>
+  <datafield tag='035' ind1=' ' ind2=' '>
+    <subfield code='a'>(OCoLC)14067354</subfield>
+    <subfield code='z'>(OCoLC)16518062</subfield>
+  </datafield>
+  <datafield tag='037' ind1=' ' ind2=' '>
+    <subfield code='b'>Woods &amp; Poole Economics, 1794 Columbia Road, NW, Washington, DC 20009</subfield>
+  </datafield>
+  <datafield tag='040' ind1=' ' ind2=' '>
+    <subfield code='a'>CSB</subfield>
+    <subfield code='c'>CSB</subfield>
+    <subfield code='d'>NSD</subfield>
+    <subfield code='d'>OCL</subfield>
+    <subfield code='d'>DLC</subfield>
+    <subfield code='d'>NST</subfield>
+    <subfield code='d'>DLC</subfield>
+    <subfield code='d'>FUG</subfield>
+    <subfield code='d'>IUL</subfield>
+    <subfield code='d'>OCLCQ</subfield>
+  </datafield>
+  <datafield tag='042' ind1=' ' ind2=' '>
+    <subfield code='a'>nsdp</subfield>
+    <subfield code='a'>lc</subfield>
+  </datafield>
+  <datafield tag='043' ind1=' ' ind2=' '>
+    <subfield code='a'>n-us---</subfield>
+  </datafield>
+  <datafield tag='049' ind1=' ' ind2=' '>
+    <subfield code='a'>NOCC</subfield>
+  </datafield>
+  <datafield tag='050' ind1='0' ind2='0'>
+    <subfield code='a'>HC101</subfield>
+    <subfield code='b'>.C616</subfield>
+  </datafield>
+  <datafield tag='082' ind1='0' ind2='0'>
+    <subfield code='a'>330.973/0021</subfield>
+    <subfield code='2'>20</subfield>
+  </datafield>
+  <datafield tag='210' ind1='0' ind2=' '>
+    <subfield code='a'>Complet. econ. demogr. data source</subfield>
+  </datafield>
+  <datafield tag='222' ind1=' ' ind2='4'>
+    <subfield code='a'>The Complete economic and demographic data source</subfield>
+  </datafield>
+  <datafield tag='245' ind1='0' ind2='4'>
+    <subfield code='a'>The complete economic and demographic data source</subfield>
+    <subfield code='h'>[serial]:</subfield>
+    <subfield code='b'>CEDDS.</subfield>
+  </datafield>
+  <datafield tag='246' ind1='3' ind2='0'>
+    <subfield code='a'>CEDDS</subfield>
+  </datafield>
+  <datafield tag='260' ind1=' ' ind2=' '>
+    <subfield code='a'>Washington, D.C. :</subfield>
+    <subfield code='b'>Woods &amp; Poole Economics,</subfield>
+    <subfield code='c'>1984-</subfield>
+  </datafield>
+  <datafield tag='300' ind1=' ' ind2=' '>
+    <subfield code='a'>v. ;</subfield>
+    <subfield code='c'>30 cm.</subfield>
+  </datafield>
+  <datafield tag='310' ind1=' ' ind2=' '>
+    <subfield code='a'>Annual</subfield>
+  </datafield>
+  <datafield tag='362' ind1='0' ind2=' '>
+    <subfield code='a'>1984-</subfield>
+  </datafield>
+  <datafield tag='500' ind1=' ' ind2=' '>
+    <subfield code='a'>Latest issue consulted: 1996.</subfield>
+  </datafield>
+  <datafield tag='506' ind1=' ' ind2=' '>
+    <subfield code='a'>Commercially licensed data: Submission of data to journals in support of article submissions is prohibited.</subfield>
+  </datafield>
+  <datafield tag='515' ind1=' ' ind2=' '>
+    <subfield code='a'>Vols. for &lt;1989-1996&gt; issued in 3 v.; not published 1995.</subfield>
+  </datafield>
+  <datafield tag='530' ind1=' ' ind2=' '>
+    <subfield code='a'>Published also in CD-ROM format, 1992-</subfield>
+  </datafield>
+  <datafield tag='650' ind1=' ' ind2='0'>
+    <subfield code='a'>Economic forecasting</subfield>
+    <subfield code='z'>United States</subfield>
+    <subfield code='v'>Statistics</subfield>
+    <subfield code='v'>Periodicals.</subfield>
+  </datafield>
+  <datafield tag='650' ind1=' ' ind2='0'>
+    <subfield code='a'>Population forecasting</subfield>
+    <subfield code='z'>United States</subfield>
+    <subfield code='v'>Statistics</subfield>
+    <subfield code='v'>Periodicals.</subfield>
+  </datafield>
+  <datafield tag='651' ind1=' ' ind2='0'>
+    <subfield code='a'>United States</subfield>
+    <subfield code='x'>Economic conditions</subfield>
+    <subfield code='y'>1981-2001</subfield>
+    <subfield code='v'>Statistics</subfield>
+    <subfield code='v'>Periodicals.</subfield>
+  </datafield>
+  <datafield tag='651' ind1=' ' ind2='0'>
+    <subfield code='a'>United States</subfield>
+    <subfield code='x'>Population</subfield>
+    <subfield code='v'>Statistics</subfield>
+    <subfield code='v'>Periodicals.</subfield>
+  </datafield>
+  <datafield tag='710' ind1='2' ind2=' '>
+    <subfield code='a'>Woods &amp; Poole Economics.</subfield>
+  </datafield>
+  <datafield tag='776' ind1='1' ind2=' '>
+    <subfield code='t'>Complete economic and demographic data source (CD-ROM)</subfield>
+    <subfield code='w'>(DLC)sn 93026278</subfield>
+    <subfield code='w'>(OCoLC)28000316</subfield>
+  </datafield>
+  <datafield tag='856' ind1='4' ind2='0'>
+    <subfield code='y'>Latest edition is available online</subfield>
+    <subfield code='u'>http://willow.lib.unc.edu.libproxy.lib.unc.edu/content/dataservices/woods_poole/</subfield>
+  </datafield>
+  <datafield tag='907' ind1=' ' ind2=' '>
+    <subfield code='a'>b2134782</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i8909634</subfield>
+    <subfield code='l'>dhca</subfield>
+    <subfield code='s'>o</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00040665985</subfield>
+    <subfield code='p'>090##</subfield>
+    <subfield code='q'>|aHC101|b.C616</subfield>
+    <subfield code='v'>2011:v.1</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i8909635</subfield>
+    <subfield code='l'>dhca</subfield>
+    <subfield code='s'>o</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00040665994</subfield>
+    <subfield code='p'>090##</subfield>
+    <subfield code='q'>|aHC101|b.C616</subfield>
+    <subfield code='v'>2011:v.2</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i8909636</subfield>
+    <subfield code='l'>dhca</subfield>
+    <subfield code='s'>o</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00040666001</subfield>
+    <subfield code='p'>090##</subfield>
+    <subfield code='q'>|aHC101|b.C616</subfield>
+    <subfield code='v'>2011:v.3</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i8909637</subfield>
+    <subfield code='l'>dhca</subfield>
+    <subfield code='s'>o</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00040666010</subfield>
+    <subfield code='p'>090##</subfield>
+    <subfield code='q'>|aHC101|b.C616</subfield>
+    <subfield code='v'>2011:v.4</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6888392</subfield>
+    <subfield code='l'>dccd</subfield>
+    <subfield code='s'>o</subfield>
+    <subfield code='t'>43</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00028180584</subfield>
+    <subfield code='p'>090##</subfield>
+    <subfield code='q'>|aHC101|b.C616</subfield>
+    <subfield code='v'>1992:v.1</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6888393</subfield>
+    <subfield code='l'>dccd</subfield>
+    <subfield code='s'>o</subfield>
+    <subfield code='t'>43</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00028180593</subfield>
+    <subfield code='p'>090##</subfield>
+    <subfield code='q'>|aHC101|b.C616</subfield>
+    <subfield code='v'>1992:v.2</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6888394</subfield>
+    <subfield code='l'>dccd</subfield>
+    <subfield code='s'>o</subfield>
+    <subfield code='t'>43</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00028180600</subfield>
+    <subfield code='p'>090##</subfield>
+    <subfield code='q'>|aHC101|b.C616</subfield>
+    <subfield code='v'>1992:v.3</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6912466</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00036882007</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial 10-4     </subfield>
+    <subfield code='v'>2007:Demogr.Data Disc 1</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6990676</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00028083252</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial 10-4     </subfield>
+    <subfield code='v'>2007:Demogr.Data Disc 2</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6990681</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00036882016</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial 10-4     </subfield>
+    <subfield code='v'>2007:Desktop Data Disc 2</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6990691</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00028083074</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial 10-4     </subfield>
+    <subfield code='v'>2007:Econ. Database</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6990705</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00028083449</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial 10-4     </subfield>
+    <subfield code='v'>2007:Tech.Doc.CEDDS</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6990706</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00028083065</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial 10-4     </subfield>
+    <subfield code='v'>2007:Tech.Doc.Demogr. Data</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6990707</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00028083056</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial 10-4     </subfield>
+    <subfield code='v'>2007:Tech.Doc.Desktop Data</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6990708</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00028083458</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial 10-4     </subfield>
+    <subfield code='v'>2007:Tech.Doc.Econ. Database</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6990750</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00028083476</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial 10-4     </subfield>
+    <subfield code='v'>2007:Tech.Doc.(On Disc)</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i8288207</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00034665087</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial|a10-4</subfield>
+    <subfield code='v'>2008:Demogr.Data Disc 1</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i8288208</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00034664961</subfield>
+    <subfield code='p'>099#0</subfield>
+    <subfield code='q'>|aSerial|a10-4</subfield>
+    <subfield code='v'>2008:Demogr.Data Disc 2</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i8288209</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00034664943</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial|a10-4</subfield>
+    <subfield code='v'>2008:Desktop Data Disc 1</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i8288210</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00034664952</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial|a10-4</subfield>
+    <subfield code='v'>2008:Desktop Data Disc 2</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i8288211</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00034664934</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial|a10-4</subfield>
+    <subfield code='v'>2008:Econ. Database</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i8288212</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00034664925</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial|a10-4</subfield>
+    <subfield code='v'>2008:Tech.Doc.Demogr. Data</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i8288213</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00034664916</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial|a10-4</subfield>
+    <subfield code='v'>2008:Tech.Doc.Econ. Database</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i8288214</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00034664907</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial|a10-4</subfield>
+    <subfield code='v'>2008:Tech.Doc.Desktop Data</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6990680</subfield>
+    <subfield code='l'>trln</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>3</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>00028083243</subfield>
+    <subfield code='p'>099#9</subfield>
+    <subfield code='q'>|aSerial 10-4     </subfield>
+    <subfield code='v'>2007:Desktop Data Disc 1</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='2'>
+    <subfield code='a'>c4874003</subfield>
+    <subfield code='b'>dhca</subfield>
+    <subfield code='c'>0</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='3'>
+    <subfield code='0'>c4874003</subfield>
+    <subfield code='2'>852</subfield>
+    <subfield code='3'>c</subfield>
+    <subfield code='h'>HC101</subfield>
+    <subfield code='i'>.C616</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='3'>
+    <subfield code='0'>c4874003</subfield>
+    <subfield code='2'>853</subfield>
+    <subfield code='3'>y</subfield>
+    <subfield code='8'>1</subfield>
+    <subfield code='a'>(Year)</subfield>
+    <subfield code='b'>v.</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='3'>
+    <subfield code='0'>c4874003</subfield>
+    <subfield code='2'>866</subfield>
+    <subfield code='3'>h</subfield>
+    <subfield code='8'>1</subfield>
+    <subfield code='a'>2011:v.1-2011:v.4 Print edition</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='2'>
+    <subfield code='a'>c2363075</subfield>
+    <subfield code='b'>dccd</subfield>
+    <subfield code='c'>0</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='3'>
+    <subfield code='0'>c2363075</subfield>
+    <subfield code='2'>852</subfield>
+    <subfield code='3'>c</subfield>
+    <subfield code='b'>553323</subfield>
+    <subfield code='h'>HC101</subfield>
+    <subfield code='i'>.C616</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='3'>
+    <subfield code='0'>c2363075</subfield>
+    <subfield code='2'>853</subfield>
+    <subfield code='3'>y</subfield>
+    <subfield code='8'>1</subfield>
+    <subfield code='a'>(year)</subfield>
+    <subfield code='b'>v.</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='3'>
+    <subfield code='0'>c2363075</subfield>
+    <subfield code='2'>866</subfield>
+    <subfield code='3'>h</subfield>
+    <subfield code='8'>1</subfield>
+    <subfield code='a'>1992:v.1-1992:v.3 Print edition</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='2'>
+    <subfield code='a'>c4825676</subfield>
+    <subfield code='b'>trln</subfield>
+    <subfield code='c'>0</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='3'>
+    <subfield code='0'>c4825676</subfield>
+    <subfield code='2'>852</subfield>
+    <subfield code='3'>c</subfield>
+    <subfield code='b'>553318</subfield>
+    <subfield code='g'>CD-ROM</subfield>
+    <subfield code='h'>Serial</subfield>
+    <subfield code='i'>10-4</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='3'>
+    <subfield code='0'>c4825676</subfield>
+    <subfield code='2'>853</subfield>
+    <subfield code='3'>y</subfield>
+    <subfield code='8'>1</subfield>
+    <subfield code='a'>(Year)</subfield>
+    <subfield code='b'>Disc </subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='3'>
+    <subfield code='0'>c4825676</subfield>
+    <subfield code='2'>866</subfield>
+    <subfield code='3'>h</subfield>
+    <subfield code='8'>1</subfield>
+    <subfield code='a'>2007-2008 on disc</subfield>
+  </datafield>
+  <datafield tag='999' ind1='0' ind2='0'>
+    <subfield code='a'>2007-08-09 00:00:00-04</subfield>
+    <subfield code='c'>2004-10-01 08:57:00-04</subfield>
+    <subfield code='u'>2018-01-10 06:03:22-05</subfield>
+    <subfield code='m'>8</subfield>
+  </datafield>
+</record>
+</collection>
