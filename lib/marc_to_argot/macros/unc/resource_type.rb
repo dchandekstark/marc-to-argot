@@ -26,10 +26,6 @@ module MarcToArgot
               formats = []
               formats << 'Archival and manuscript material'
             end
-            if unc_manuscript?
-              formats = []
-              formats << 'Archival and manuscript material'
-            end
             if unc_text_corpus?
               formats.delete('Book')
               formats << 'Text corpus'
@@ -38,67 +34,26 @@ module MarcToArgot
               formats.delete('Archival and manuscript material')
               formats.delete('Book')
               formats << 'Thesis/Dissertation'
-              formats << 'Book' unless has_502?
+              formats << 'Book' unless record.has_field?('502')
             end
             formats.uniq
           end
 
-          def manuscript_lang_rec_type?
-            record.leader.byteslice(6) == 't'
-          end
-
-          def lang_rec_type?
-            record.leader.byteslice(6) == 'a'
-          end
-
-          def computer_rec_type?
-            record.leader.byteslice(6) == 'm'
-          end
-          
           def unc_archival?
-            archival_control? && archival_bib_level?
+            record.under_archival_control? && record.has_archival_bib_level?
           end
 
-          def archival_control?
-            record.leader.byteslice(8) == 'a'
-          end
-
-          def archival_bib_level?
-            %w[c d].include?(record.leader.byteslice(7))
-          end
-
-          def book_008?
-            return true if ( manuscript_lang_rec_type? ||
-                             ( lang_rec_type? && %w[a c d m].include?(record.leader.byteslice(7)))
-                           )
-          end
-          
           def unc_manuscript?
-            return true if manuscript_lang_rec_type? unless has_502?
-          end
-
-          def the_336_contains(string_regexp)
-            regexp = Regexp.new(string_regexp)
-            match336s = record.fields('336').map{ |f| f.to_s.downcase }.select{ |f| regexp.match(f) }
-            return true unless match336s.empty?
-          end
-
-          def byte_of_008_equals(position, value)
-            return true if record['008'].value.byteslice(position) == value
-          end
-
-          def has_lang_006?
-            match006s = record.fields('006').select{ |f| f.value.byteslice(0) == 'a' }
-            return true unless match006s.empty?
+            return true if record.manuscript_lang_rec_type? unless record.has_field?('502')
           end
 
           # Text corpus
           # LDR/06 = m AND 008/26 = d AND 006/00 = a AND 336 contains dataset or cod
           def unc_text_corpus?
-            return true if (computer_rec_type? &&
-                            byte_of_008_equals(26, 'd') &&
-                            has_lang_006? &&
-                            the_336_contains('dataset|cod')
+            return true if (record.computer_rec_type? &&
+                            record.has_008_position_value?(26, 'd') &&
+                            record.has_lang_006? &&
+                            record.has_336_matching?('dataset|cod')
                            )
           end
           
@@ -109,7 +64,7 @@ module MarcToArgot
           # OR
           # 006/00 = a AND 006/07-10(any) = m
           def unc_thesis_dissertation?
-            rec_type_match = manuscript_lang_rec_type? || lang_rec_type?
+            rec_type_match = record.manuscript_lang_rec_type? || record.lang_rec_type?
             nature_contents_match = record.fields('008').find do |field|
               (field.value.byteslice(24..27) || '').split('').include?('m')
             end
@@ -121,12 +76,9 @@ module MarcToArgot
 
             return true if (rec_type_match && nature_contents_match) ||
                            marc_006_match_results.include?(true) ||
-                           rec_type_match && has_502?
+                           rec_type_match && record.has_field?('502')
           end
 
-          def has_502?
-            return true unless record.fields('502').empty?
-          end
 
         end
       end

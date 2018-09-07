@@ -430,7 +430,7 @@ module Traject::Macros
       genre_values = []
       Traject::MarcExtractor.cached('008:006', alternate_script: false).each_matching_line(rec) do |field, spec, extractor|
         to_map = []
-        if field.tag == '008' && rec.uses_book_configuration_in_008?
+        if field.tag == '008' && rec.has_book_008?
           to_map << get_bytes_to_map(field, lit_form_008, bio_008)
         elsif field.tag == '006' && field.uses_book_configuration_in_006?
           to_map << get_bytes_to_map(field, lit_form_006, bio_006)
