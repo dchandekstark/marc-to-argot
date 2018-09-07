@@ -1,0 +1,168 @@
+<?xml version='1.0'?>
+<collection xmlns='http://www.loc.gov/MARC21/slim' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd'>
+<record>
+  <leader>00000cem  2200541 a 4500</leader>
+  <controlfield tag='001'>56214148</controlfield>
+  <controlfield tag='003'>OCoLC</controlfield>
+  <controlfield tag='005'>20041115135505.0</controlfield>
+  <controlfield tag='007'>co ---</controlfield>
+  <controlfield tag='008'>040419s2003    mdu       a  fs 0   eng d</controlfield>
+  <datafield tag='010' ind1=' ' ind2=' '>
+    <subfield code='a'>  2004627047</subfield>
+    <subfield code='z'> 2004564564</subfield>
+  </datafield>
+  <datafield tag='019' ind1=' ' ind2=' '>
+    <subfield code='a'>tmp97316089</subfield>
+  </datafield>
+  <datafield tag='035' ind1=' ' ind2=' '>
+    <subfield code='a'>(OCoLC)56214148</subfield>
+  </datafield>
+  <datafield tag='040' ind1=' ' ind2=' '>
+    <subfield code='a'>OLA</subfield>
+    <subfield code='c'>OLA</subfield>
+    <subfield code='d'>DLC</subfield>
+    <subfield code='d'>GPO</subfield>
+    <subfield code='d'>OCLCQ</subfield>
+    <subfield code='d'>GPO</subfield>
+    <subfield code='d'>MvI</subfield>
+  </datafield>
+  <datafield tag='042' ind1=' ' ind2=' '>
+    <subfield code='a'>lccopycat</subfield>
+  </datafield>
+  <datafield tag='043' ind1=' ' ind2=' '>
+    <subfield code='a'>n-us-hi</subfield>
+    <subfield code='a'>pn-----</subfield>
+  </datafield>
+  <datafield tag='050' ind1='0' ind2='0'>
+    <subfield code='a'>G4381.L1 2003</subfield>
+    <subfield code='b'>.B3</subfield>
+  </datafield>
+  <datafield tag='052' ind1=' ' ind2=' '>
+    <subfield code='a'>4381</subfield>
+  </datafield>
+  <datafield tag='074' ind1=' ' ind2=' '>
+    <subfield code='a'>0128-M-02</subfield>
+  </datafield>
+  <datafield tag='086' ind1='0' ind2=' '>
+    <subfield code='a'>C 55.54:B 44/2</subfield>
+    <subfield code='z'>C 55.54:B 42/2</subfield>
+  </datafield>
+  <datafield tag='245' ind1='0' ind2='0'>
+    <subfield code='a'>Benthic habitats of the main Hawaiian Islands</subfield>
+    <subfield code='h'>[electronic resource] /</subfield>
+    <subfield code='c'>Center for Coastal Monitoring and Assessment, Biogeography Program.</subfield>
+  </datafield>
+  <datafield tag='255' ind1=' ' ind2=' '>
+    <subfield code='a'>Scales differ.</subfield>
+  </datafield>
+  <datafield tag='260' ind1=' ' ind2=' '>
+    <subfield code='a'>[Silver Spring, Md. :</subfield>
+    <subfield code='b'>U.S. Dept. of Commerce, National Oceanic and Atmospheric Administration, National Ocean Service, National Centers for Coastal Ocean Science, Center for Coastal Monitoring and Assessment, Biogeography Program,</subfield>
+    <subfield code='c'>2003]</subfield>
+  </datafield>
+  <datafield tag='300' ind1=' ' ind2=' '>
+    <subfield code='a'>1 CD-ROM :</subfield>
+    <subfield code='b'>col. ;</subfield>
+    <subfield code='c'>12 cm. +</subfield>
+    <subfield code='e'>1 documentation (48 p. : col. ill. ; 28 cm.)</subfield>
+  </datafield>
+  <datafield tag='500' ind1=' ' ind2=' '>
+    <subfield code='a'>Title from title screen.</subfield>
+  </datafield>
+  <datafield tag='500' ind1=' ' ind2=' '>
+    <subfield code='a'>Accompanying benthic habitat classification manual entitled: Benthic habitats of the main Hawaiian Islands: Interim product 2003.</subfield>
+  </datafield>
+  <datafield tag='500' ind1=' ' ind2=' '>
+    <subfield code='a'>Eight metadata files included on CD-ROM.</subfield>
+  </datafield>
+  <datafield tag='505' ind1='0' ind2=' '>
+    <subfield code='a'>Overview -- Methods -- Data -- Maps -- Partners -- About.</subfield>
+  </datafield>
+  <datafield tag='516' ind1=' ' ind2=' '>
+    <subfield code='a'>Electronic text, map, numeric and image data.</subfield>
+  </datafield>
+  <datafield tag='520' ind1=' ' ind2=' '>
+    <subfield code='a'>Provides a benthic habitat classification manual, a benthic habitat map for the nearshore waters of the main Hawaiian Islands, and supplemental geospatial data. Twenty-seven distinct benthic habitat types within eleven zones were mapped directly into a geographic information system (GIS) using visual interpretation of orthorectified aerial photographs and hyperspectral imagery. Benthic features were mapped that covered an area of 790 km². In all, 204 km² of unconsolidated sediment, 171 km² of submerged vegetation, and 415 km² of coral reef and colonized hardbottom were mapped.</subfield>
+  </datafield>
+  <datafield tag='530' ind1=' ' ind2=' '>
+    <subfield code='a'>Also available via Internet from NOS Biogeography Program Web site. Address as of 9/8/04: http://biogeo.nos.noaa.gov/products/hawaii%5Fcd; current access is available via PURL. Documentation for CD is avaiable as part of the online version.</subfield>
+  </datafield>
+  <datafield tag='530' ind1=' ' ind2=' '>
+    <subfield code='a'>A limited version atlas: Benthic habitats of the main Hawain Island, interm product 2003, was developed from the disk&apos;s maps to accommodate specific request from Hawaiian user community to support management and scientific needs.  It was distributed to deposiotry libraries on Shipping list no.: 2004-0026-S, under Item 0191-B-11, as C 55.418/6:B 44.</subfield>
+  </datafield>
+  <datafield tag='650' ind1=' ' ind2='0'>
+    <subfield code='a'>Benthos</subfield>
+    <subfield code='x'>Habitat</subfield>
+    <subfield code='z'>Hawaii</subfield>
+    <subfield code='v'>Maps.</subfield>
+  </datafield>
+  <datafield tag='650' ind1=' ' ind2='0'>
+    <subfield code='a'>Benthos</subfield>
+    <subfield code='x'>Habitat</subfield>
+    <subfield code='z'>Hawaii</subfield>
+    <subfield code='v'>Classification.</subfield>
+  </datafield>
+  <datafield tag='650' ind1=' ' ind2='0'>
+    <subfield code='a'>Aquatic habitats</subfield>
+    <subfield code='z'>Hawaii</subfield>
+    <subfield code='v'>Maps.</subfield>
+  </datafield>
+  <datafield tag='650' ind1=' ' ind2='0'>
+    <subfield code='a'>Aquatic habitats</subfield>
+    <subfield code='z'>Hawaii</subfield>
+    <subfield code='v'>Aerial photographs.</subfield>
+  </datafield>
+  <datafield tag='650' ind1=' ' ind2='0'>
+    <subfield code='a'>Coral reef ecology</subfield>
+    <subfield code='z'>Hawaii.</subfield>
+  </datafield>
+  <datafield tag='651' ind1=' ' ind2='0'>
+    <subfield code='a'>Hawaii</subfield>
+    <subfield code='v'>Aerial photographs.</subfield>
+  </datafield>
+  <datafield tag='655' ind1=' ' ind2='7'>
+    <subfield code='a'>Geospatial data.</subfield>
+    <subfield code='2'>lcgft</subfield>
+  </datafield>
+  <datafield tag='710' ind1='2' ind2=' '>
+    <subfield code='a'>Center for Coastal Monitoring and Assessment (U.S.).</subfield>
+    <subfield code='b'>Biogeography Program.</subfield>
+  </datafield>
+  <datafield tag='856' ind1='4' ind2='1'>
+    <subfield code='y'>Full text available via the UNC-Chapel Hill Libraries</subfield>
+    <subfield code='u'>http://purl.access.gpo.gov/GPO/LPS116484</subfield>
+  </datafield>
+  <datafield tag='907' ind1=' ' ind2=' '>
+    <subfield code='a'>b4533137</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i5857246</subfield>
+    <subfield code='l'>dcpf</subfield>
+    <subfield code='s'>-</subfield>
+    <subfield code='t'>20</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>HBHM-3394-00001</subfield>
+    <subfield code='p'>0860#</subfield>
+    <subfield code='q'>|aC 55.54:B 44/2</subfield>
+    <subfield code='n'>CD-ROM</subfield>
+  </datafield>
+  <datafield tag='999' ind1='9' ind2='1'>
+    <subfield code='i'>i6114329</subfield>
+    <subfield code='l'>jjda</subfield>
+    <subfield code='s'>o</subfield>
+    <subfield code='t'>34</subfield>
+    <subfield code='c'>1</subfield>
+    <subfield code='o'>0</subfield>
+    <subfield code='b'>HBJS-9391-00001</subfield>
+    <subfield code='p'>0860#</subfield>
+    <subfield code='q'>|aC 55.54:B 44/2</subfield>
+  </datafield>
+  <datafield tag='999' ind1='0' ind2='0'>
+    <subfield code='a'>2006-05-30 00:00:00-04</subfield>
+    <subfield code='c'>2004-11-10 10:04:00-05</subfield>
+    <subfield code='u'>2018-08-08 06:02:48-04</subfield>
+    <subfield code='m'>7</subfield>
+  </datafield>
+</record>
+</collection>

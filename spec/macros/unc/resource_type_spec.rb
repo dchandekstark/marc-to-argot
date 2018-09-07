@@ -9,13 +9,14 @@ describe MarcToArgot::Macros::UNC::ResourceType do
   let(:archives5) { run_traject_json('unc', 'archives5', 'mrc') }
   let(:corpus1) { run_traject_json('unc', 'corpus1', 'mrc') }
   let(:corpus2) { run_traject_json('unc', 'corpus2', 'mrc') }
-  let(:thesis1) { run_traject_json('unc', 'thesis1', 'mrc') }
-  let(:thesis2) { run_traject_json('unc', 'thesis2', 'mrc') }
-  let(:thesis3) { run_traject_json('unc', 'thesis3', 'mrc') }
+  let(:geodata1) { run_traject_json('unc', 'geodata1', 'xml') }
   let(:manuscript1) { run_traject_json('unc', 'manuscript1', 'mrc') }
   let(:stats1) { run_traject_json('unc', 'stats1', 'mrc') }
   let(:stats2) { run_traject_json('unc', 'stats2', 'mrc') }
   let(:stats_not1) { run_traject_json('unc', 'stats_not1', 'mrc') }
+  let(:thesis1) { run_traject_json('unc', 'thesis1', 'mrc') }
+  let(:thesis2) { run_traject_json('unc', 'thesis2', 'mrc') }
+  let(:thesis3) { run_traject_json('unc', 'thesis3', 'mrc') }
   
   context 'LDR/06 (rec type) is computer file (m)' do
     context 'AND 008/26 (type of computer file) is numeric data (a)' do
@@ -133,6 +134,13 @@ describe MarcToArgot::Macros::UNC::ResourceType do
           expect(a).to_not include('Dataset -- Statistical')
         end
       end
+    end
+  end
+
+  context 'III material type code = 7 (geospatial data)' do
+    it '(UNC) resource_type includes Dataset -- Geospatial' do
+      a = geodata1['resource_type']
+      expect(a).to include('Dataset -- Geospatial')
     end
   end
 

@@ -36,6 +36,9 @@ module MarcToArgot
               formats << 'Thesis/Dissertation'
               formats << 'Book' unless record.has_field?('502')
             end
+            if unc_geospatial?
+              formats << 'Dataset -- Geospatial'
+            end
             formats.uniq
           end
 
@@ -45,6 +48,23 @@ module MarcToArgot
 
           def unc_manuscript?
             return true if record.manuscript_lang_rec_type? unless record.has_field?('502')
+          end
+
+          def unc_geospatial?
+            true if has_iii_mattype_code?('7')
+          end
+
+          def has_iii_mattype_code?(value)
+            bib_meta = record.select{ |field| field.tag == '999' && field.indicator2 == '0' }.first
+            if bib_meta
+              if bib_meta['m'] == value
+                true
+              elsif bib_meta['m'].nil?
+                nil
+              else
+                false
+              end
+            end
           end
 
           # Text corpus
