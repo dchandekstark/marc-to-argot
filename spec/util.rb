@@ -125,5 +125,15 @@ module Util
     def run_traject_json(collection, file, extension = 'xml')
       JSON.parse(run_traject(collection, file, extension))
     end
+
+    # Runs traject on a single MARC record and returns JSON
+    def run_traject_on_record(collection, record)
+      indexer = load_indexer(collection, 'mrc')
+      indexer.map_record(record)
+    end
+
+    def run_traject_json_on_record(collection, record)
+      JSON.parse(run_traject_on_record(collection, record))
+    end
   end
 end
