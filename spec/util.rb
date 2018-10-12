@@ -132,8 +132,5 @@ module Util
       indexer.map_record(record)
     end
 
-    def run_traject_json_on_record(collection, record)
-      JSON.parse(run_traject_on_record(collection, record))
-    end
   end
 end
