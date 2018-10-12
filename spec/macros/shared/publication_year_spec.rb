@@ -1,101 +1,356 @@
 # coding: utf-8
 require 'spec_helper'
+#require_relative '../../../lib/marc_to_argot/macros/shared/publication_year'
+include MarcToArgot::Macros::Shared::PublicationYear
 
-describe MarcToArgot::Macros::Shared::PublicationYear do
-  #  describe PublicationYearFinder do
-  #  end
+describe MarcToArgot do
+  include Util::TrajectRunTest
 
   def make_rec
     rec = MARC::Record.new
     rec << MARC::ControlField.new('008', ' ' * 40)
+    return rec
   end
 
-  describe 'usable_date?' do
-    it 'returns true if 4 digits and in range' do
-      v = MarcToArgot::Macros::Shared::PublicationYear.usable_date?('1997', 500, 2024)
-      expect(v).to eq(true)
+  describe MarcToArgot::Macros::Shared::PublicationYear do
+    context 'DateType = b' do
+      context 'AND no 260/4 date' do
+        it '(MTA) does not set date' do
+          rec = make_rec
+          val = rec['008'].value
+          val[6] = 'b'
+          val[7..10] = '1975'
+          rec['008'].value = val
+          argot = run_traject_on_record('unc', rec)
+          expect(argot['publication_year']).to be_nil
+        end
+      end
+
+      context 'AND 260/4 date' do
+        it '(MTA) does not set date' do
+          rec = make_rec
+          val = rec['008'].value
+          val[6] = 'b'
+          val[7..10] = '1975'
+          rec['008'].value = val
+          rec << MARC::DataField.new('260', ' ',  ' ', ['c', '1999'])
+          argot = run_traject_on_record('unc', rec)
+          expect(argot['publication_year']).to eq([1999])
+        end
+      end
     end
 
-    it 'returns true if fewer than 4 digits, but in range' do
-      v = MarcToArgot::Macros::Shared::PublicationYear.usable_date?('666 ', 500, 2024)
-      expect(v).to eq(true)
+    context 'DateType = c' do
+      it '(MTA) sets from usable date2 if present' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'c20129999'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([9999])
+      end
+      it '(MTA) does not set from unusable date2' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'c19002uuu'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to be_nil
+      end
     end
 
-    it 'returns false if 4 digits and out of range' do
-      v = MarcToArgot::Macros::Shared::PublicationYear.usable_date?('6754', 500, 2024)
-      expect(v).to eq(false)
+    context 'DateType = e' do
+      context 'AND no 260/4 date' do
+        it '(MTA) sets from usable date1' do
+          rec = make_rec
+          rec['008'].value[6..14] = 'e20120215'
+          argot = run_traject_on_record('unc', rec)
+          expect(argot['publication_year']).to eq([2012])
+        end
+        it '(MTA) does not set from unusable date1' do
+          rec = make_rec
+          rec['008'].value[6..14] = 'e||||0215'
+          argot = run_traject_on_record('unc', rec)
+          expect(argot['publication_year']).to be_nil
+        end
+      end
     end
 
-    it 'returns false if uuuu' do
-      v = MarcToArgot::Macros::Shared::PublicationYear.usable_date?('uuuu', 500, 2024)
-      expect(v).to eq(false)
+    context 'DateType = i' do
+      it '(MTA) sets from usable date1' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'i19101950'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1910])
+      end
     end
 
-    it 'returns true if 9999' do
-      v = MarcToArgot::Macros::Shared::PublicationYear.usable_date?('9999', 500, 2024)
-      expect(v).to eq(true)
+    context 'DateType = k' do
+      it '(MTA) sets from usable date1' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'k19101950'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1910])
+      end
     end
-  end
 
-  describe 'is_range?' do
-    it 'works for fixed field u dates' do
-      v1 = MarcToArgot::Macros::Shared::PublicationYear.is_range?('1997', 'fixed_field')
-      v2 = MarcToArgot::Macros::Shared::PublicationYear.is_range?('199u', 'fixed_field')
-      v3 = MarcToArgot::Macros::Shared::PublicationYear.is_range?('19uu', 'fixed_field')
-      v4 = MarcToArgot::Macros::Shared::PublicationYear.is_range?('uuuu', 'fixed_field')
-      v5 = MarcToArgot::Macros::Shared::PublicationYear.is_range?('198|', 'fixed_field')
-      v6 = MarcToArgot::Macros::Shared::PublicationYear.is_range?('66u|', 'fixed_field')
-      expect(v1).to eq(false)
-      expect(v2).to eq(true)
-      expect(v3).to eq(true)
-      expect(v4).to eq(false)
-      expect(v5).to eq(false)
-      expect(v6).to eq(true)
+    context 'DateType = m' do
+      it '(MTA) sets from non-9999 date2' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'm19662000'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([2000])
+      end
+      it '(MTA) sets from date1 if date2 = 9999' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'm19669999'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1966])
+      end
+      it '(MTA) sets from date1 if date2 otherwise unusable' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'm19842uuu'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1984])
+      end
     end
+
+    context 'DateType = n' do
+      it '(MTA) if usable range, sets midpoint' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'n18501900'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1875])
+      end
+      it '(MTA) uses date1 if both dates present but equal or date1 later' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'n19661966'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1966])
+        rec['008'].value[6..14] = 'n20001950'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([2000])
+      end
+      it '(MTA) sets from date1 if date2 unusable' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'n19842uuu'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1984])
+      end
+    end
+
+    context 'DateType = p' do
+      it '(MTA) sets from non-9999 date2' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'p20182000'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([2000])
+      end
+      it '(MTA) sets from date1 if date2 = 9999' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'p19669999'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1966])
+      end
+      it '(MTA) sets from date1 if date2 otherwise unusable' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'p1984uuuu'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1984])
+      end
+    end
+
+    context 'DateType = q' do
+      it '(MTA) if usable range, sets midpoint' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'q10001199'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1099])
+      end
+      it '(MTA) uses date1 if both dates present but equal or date1 later' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'q19661966'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1966])
+        rec['008'].value[6..14] = 'q20001950'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([2000])
+      end
+      it '(MTA) sets from date2 if date1 unusable' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'q    1932'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1932])
+      end
+    end
+
+    context 'DateType = r' do
+      it '(MTA) sets from non-9999 date2' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'r20182000'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([2000])
+      end
+      it '(MTA) sets from date1 if date2 = 9999' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'r19669999'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1966])
+      end
+      it '(MTA) sets from date1 if date2 otherwise unusable' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'r1984uuuu'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1984])
+      end
+    end
+
+    context 'DateType = s' do
+      context 'AND no 260/4 date' do
+        it '(MTA) sets from usable date1' do
+          rec = make_rec
+          rec['008'].value[6..14] = 's2012    '
+          argot = run_traject_on_record('unc', rec)
+          expect(argot['publication_year']).to eq([2012])
+        end
+      end
+    end
+
+    context 'DateType = t' do
+      it '(MTA) sets from usable date1' do
+        rec = make_rec
+        rec['008'].value[6..14] = 't2012    '
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([2012])
+      end
+    end
+
+    context 'DateType = u' do
+      it '(MTA) sets from usable date2 if present --- 9999 is considered usable' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'u20129999'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([9999])
+      end
+      it '(MTA) sets from usable date1 if no usable date2' do
+        rec = make_rec
+        rec['008'].value[6..14] = 'u19002uuu'
+        argot = run_traject_on_record('unc', rec)
+        expect(argot['publication_year']).to eq([1900])
+      end
+    end
+
+    describe 'usable_date?' do
+      it 'returns true if 4 digits and in range' do
+        v = usable_date?('1997', 500, 2024)
+        expect(v).to eq(true)
+      end
+
+      it 'returns true if fewer than 4 digits, but in range' do
+        v = usable_date?('666 ', 500, 2024)
+        expect(v).to eq(true)
+      end
+
+      it 'returns false if 4 digits and out of range' do
+        v = usable_date?('6754', 500, 2024)
+        expect(v).to eq(false)
+      end
+
+      it 'returns false if uuuu' do
+        v = usable_date?('uuuu', 500, 2024)
+        expect(v).to eq(false)
+      end
+
+      it 'returns true if 9999' do
+        v = usable_date?('9999', 500, 2024)
+        expect(v).to eq(true)
+      end
+    end
+
+    describe 'is_range?' do
+      it 'works for fixed field u dates' do
+        v1 = is_range?('1997', 'fixed_field')
+        v2 = is_range?('199u', 'fixed_field')
+        v3 = is_range?('19uu', 'fixed_field')
+        v4 = is_range?('uuuu', 'fixed_field')
+        v5 = is_range?('198|', 'fixed_field')
+        v6 = is_range?('66u|', 'fixed_field')
+        expect(v1).to eq(false)
+        expect(v2).to eq(true)
+        expect(v3).to eq(true)
+        expect(v4).to eq(false)
+        expect(v5).to eq(false)
+        expect(v6).to eq(true)
+      end
+      
+      it 'works for variable field u dates' do
+        v1 = is_range?('1997', 'var_field')
+        v2 = is_range?('199-', 'var_field')
+        v3 = is_range?('19--', 'var_field')
+        v4 = is_range?('1---', 'var_field')
+        v5 = is_range?('198?', 'var_field')
+        expect(v1).to eq(false)
+        expect(v2).to eq(true)
+        expect(v3).to eq(true)
+        expect(v4).to eq(true)
+        expect(v5).to eq(false)
+      end
+    end
+
+    describe 'choose_ff_date' do
+      it 'returns preferred date if present' do
+        d = choose_ff_date(1999, 1995, false)
+        expect(d).to eq(1999)
+      end
+      it 'returns fallback date if preferred date not present' do
+        d = choose_ff_date(nil, 1995, false)
+        expect(d).to eq(1995)
+      end
+      it 'returns fallback date if preferred date is invalid 9999' do
+        d = choose_ff_date(9999, 1995, false)
+        expect(d).to eq(1995)
+      end
+      it 'returns nil if both dates are missing or an invalid 9999' do
+        d = choose_ff_date(9999, nil, false)
+        expect(d).to be_nil
+      end
+      it 'returns 9999 from preferred date if 9999 is valid' do
+        d = choose_ff_date(9999, 1980, true)
+        expect(d).to eq(9999)
+      end
+    end
+
+    describe 'midpoint_or_usable' do
+      it 'returns midpoint between dates if both dates present' do
+        d = midpoint_or_usable(1850, 1900)
+        expect(d).to eq(1875)
+      end
+      it 'does not consider 9999 a usable date' do
+        d = midpoint_or_usable(1850, 9999)
+        expect(d).to eq(1850)
+      end
+      it 'chooses single date if only one is usable' do
+        d = midpoint_or_usable(1894, nil)
+        expect(d).to eq(1894)
+      end
+      it 'chooses single date if both dates are identical' do
+        d = midpoint_or_usable(1894, 1894)
+        expect(d).to eq(1894)
+      end
+    end
+    #  describe 'PublicationYearFinder' do
+    #  end
     
-    it 'works for variable field u dates' do
-      v1 = MarcToArgot::Macros::Shared::PublicationYear.is_range?('1997', 'var_field')
-      v2 = MarcToArgot::Macros::Shared::PublicationYear.is_range?('199-', 'var_field')
-      v3 = MarcToArgot::Macros::Shared::PublicationYear.is_range?('19--', 'var_field')
-      v4 = MarcToArgot::Macros::Shared::PublicationYear.is_range?('1---', 'var_field')
-      v5 = MarcToArgot::Macros::Shared::PublicationYear.is_range?('198?', 'var_field')
-      expect(v1).to eq(false)
-      expect(v2).to eq(true)
-      expect(v3).to eq(true)
-      expect(v4).to eq(true)
-      expect(v5).to eq(false)
-    end
-  end
-
-  describe 'FixedFieldDate' do
-    describe '.new' do
-      it 'retains stripped original value in orig' do
-        ffd = MarcToArgot::Macros::Shared::PublicationYear::FixedFieldDate.new('123 ', 500, 2024)
-        expect(ffd.orig).to eq('123')
+    describe 'get_fixed_field_date' do
+      it 'treats uncertain date as range' do
+        d = get_fixed_field_date('19uu', 500, 2024)
+        expect(d).to eq(1949)
       end
 
-      it 'sets is_range to true or false' do
-        r1 = MarcToArgot::Macros::Shared::PublicationYear::FixedFieldDate.new('1997', 500, 2024)
-        expect(r1.is_range).to eq(true).or eq(false)
+      it 'populates usable non-range date' do
+        d = get_fixed_field_date('666', 500, 2024)
+        expect(d).to eq(666)
       end
 
-      it 'populates range start and end values' do
-        r1 = MarcToArgot::Macros::Shared::PublicationYear::FixedFieldDate.new('19uu', 500, 2024)
-        expect(r1.startdate).to eq(1900)
-        expect(r1.enddate).to eq(1999)
-        r2 = MarcToArgot::Macros::Shared::PublicationYear::FixedFieldDate.new('6uu|', 500, 2024)
-        expect(r2.startdate).to eq(600)
-        expect(r2.enddate).to eq(699)
-      end
-
-      it 'populates usedate for range' do
-        r1 = MarcToArgot::Macros::Shared::PublicationYear::FixedFieldDate.new('19uu', 500, 2024)
-        expect(r1.usedate).to eq(1949)
-      end
-
-      it 'populates usedate for non-range' do
-        r1 = MarcToArgot::Macros::Shared::PublicationYear::FixedFieldDate.new('666', 500, 2024)
-        expect(r1.usedate).to eq(666)
+      it 'returns nil if date is not usable' do
+        d = get_fixed_field_date('9876', 500, 2024)
+        expect(d).to be_nil
       end
     end
   end

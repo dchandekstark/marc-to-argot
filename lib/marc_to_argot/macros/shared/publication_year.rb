@@ -3,7 +3,7 @@ module MarcToArgot
     module Shared
       module PublicationYear
 
-        def self.usable_date?(str, min, max)
+        def usable_date?(str, min, max)
           date = str.to_i
           return true if date == 9999
           return false unless date >= min
@@ -11,7 +11,7 @@ module MarcToArgot
           true
         end
 
-        def self.is_range?(str, type)
+        def is_range?(str, type)
           case type
           when 'fixed_field'
             return true if str =~ /\d+u+/
@@ -21,67 +21,90 @@ module MarcToArgot
             false
           end
         end
+
+        # valid_9999 = true if 9999 is an acceptable/desired date to assign
+        # otherwise, valid_9999 = false
+        def choose_ff_date(preferred_date, fallback_date, valid_9999)
+          chosen_year = preferred_date
+          chosen_year = nil if chosen_year == 9999 && valid_9999 == false
+          chosen_year = fallback_date if chosen_year == nil
+          chosen_year = nil if chosen_year == 9999 && valid_9999 == false
+          return chosen_year
+        end
+
+        # if both dates are usable as a range, returns midpoint between them
+        # if both dates are usable, but not usable as range, return date1
+        # if one but not both of the dates is usable, return it
+        def midpoint_or_usable(date1, date2)
+          return date1 if date2 == 9999
+          return (date1 + date2)/2 if date1 && date2 && date2 > date1
+          return date1 if date1 && date2 && date2 <= date1
+          return date1 if date1
+          return date2 if date2
+          return nil
+        end
+
+        def get_fixed_field_date(string, min, max)
+          orig = string.strip
+          if is_range?(orig, 'fixed_field')
+            startdate = orig.gsub('u', '0').to_i
+            enddate = orig.gsub('u', '9').to_i
+            usedate = (startdate + enddate)/2
+          else
+            usedate = orig.to_i
+          end
+          usedate = nil unless usable_date?(usedate, min, max)
+          return usedate
+        end
         
         def publication_year(options = {})
           min_year            = options[:min_year] || 500
           max_year            = options[:max_year] || (Time.new.year + 6)
           
           lambda do |rec, acc|
-            date = set_publication_year(rec, min_year, max_year)
+            date = set_year_from_008(rec, min_year, max_year)
             acc << date if date
           end
         end
 
-        class PublicationYearFinder
-          attr_reader :year_found
-          attr_reader :ff_date_type
-          attr_reader :ff_date1
-          attr_reader :ff_date2
-          attr_reader :var_date
-          attr_reader :min
-          attr_reader :max
+          def set_year_from_008(rec, min, max)
+            min = min
+            max = max
+            ff_date_type = rec.date_type
+            ff_date1 = get_fixed_field_date(rec.date1, min, max)
+            ff_date2 = get_fixed_field_date(rec.date2, min, max)
 
-          def initialize(rec, min, max)
-            @year_found = nil
-            @min = min
-            @max = max
-            @ff_date_type = rec.date_type
-            @ff_date1 = rec.date1
-            @ff_date2 = rec.date2            
-            return @year_found
-          end
-        end
-
-        class FixedFieldDate
-          attr_reader :orig
-          attr_reader :is_range
-          attr_reader :startdate
-          attr_reader :enddate
-          attr_reader :usedate
-
-          def initialize(string, min, max)
-            @orig = string.strip
-            @is_range = MarcToArgot::Macros::Shared::PublicationYear.is_range?(@orig, 'fixed_field')
-            if @is_range
-              @startdate = @orig.gsub('u', '0').to_i
-              @enddate = @orig.gsub('u', '9').to_i
-              @usedate = (@startdate + @enddate)/2
-            else
-              @usedate = @orig.to_i
+            case ff_date_type
+            when 'b'
+              year_found = nil
+            when 'c'
+              year_found = ff_date2
+            when 'e'
+              year_found = ff_date1
+            when 'i'
+              year_found = ff_date1
+            when 'k'
+              year_found = ff_date1
+            when 'm'
+              year_found = choose_ff_date(ff_date2, ff_date1, false)
+            when 'n'
+              year_found = midpoint_or_usable(ff_date1, ff_date2)
+            when 'p'
+              year_found = choose_ff_date(ff_date2, ff_date1, false)
+            when 'q'
+              year_found = midpoint_or_usable(ff_date1, ff_date2)
+            when 'r'
+              year_found = choose_ff_date(ff_date2, ff_date1, false)
+            when 's'
+              year_found = ff_date1
+            when 't'
+              year_found = ff_date1
+            when 'u'
+              year_found = choose_ff_date(ff_date2, ff_date1, true)
             end
+            return year_found
           end
-
-
-        end
-
-
-
-          
-
-
       end
-
-      
     end
   end
 end
